@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# Notes to Self:
+#   Think About Encoding, UTF-8 or ISO-8859-15 to extend available characters
+
+import sys
+import curses
+
+# Sets the Search Path for Modules
+sys.path.extend(['modules', 'classes'])
+
+from glcurses import glcurses
+from glengine import glengine
+import config
+
+class Godlike():
+    def __init__(self):
+        self.screen = glcurses()
+        self.screen.bold(12, 25, "Welcome to Godlike")
+        self.screen.write(13, 25, "  -->By Mik")
+        self.screen.write(24, 0, " Press any key to continue ...")
+        self.screen.getch()
+        self.screen.clear()
+        self.engine = glengine(self.screen)
+
+    def main(self):
+        self.screen.redraw()
+        
+        while 1:
+            key = self.screen.getch()
+            if key == ord('q'): break
+            elif self.engine.action(key): pass
+            self.engine.passturn()
+
+
+
+
+
+
+def main(self):
+    a = Godlike()
+    a.main()
+
+curses.wrapper(main)
