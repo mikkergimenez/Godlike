@@ -4,7 +4,8 @@ module.exports = {
     css: 'app/scss/',
     img: 'app/img/',
     js: 'app/js/',
-    html: 'app/html/'
+    html: 'app/html/',
+    coffee: 'app/coffee/'
   },
   dist: {
     path: 'dist/',
@@ -15,6 +16,7 @@ module.exports = {
     fonts: 'dist/fonts/'
   },
   test: {
+    coffee: 'tests.coffee/',
     path: 'tests/',
     unit: 'tests/unit/',
     functional: 'tests/functional/'

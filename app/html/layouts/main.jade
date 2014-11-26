@@ -33,3 +33,169 @@ html
       script window.jQuery || document.write('<script src="/scripts/vendor/jquery-1.11.1.min.js"><\/script>')
       script(src='../js/vendor.js')
       script(src='../js/bundle.js')
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Headers</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/flat-ui.css">
+    <!-- Using only with Flat-UI (free)-->
+    <link rel="stylesheet" href="css/icon-font.css">
+    <!-- end -->
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/ui-kit-styles.css">
+ 
+<style>
+  #feedback { font-size: 1.4em; }
+  .selectable .ui-selecting { background: #FECA40; }
+  .selectable .ui-selected { background: #F39814; color: white; }
+  .selectable { list-style-type: none; margin: 0; padding: 0; width: 100%}
+  .selectable li { text-align: center; margin: 3px; padding: .4em; font-size: 1.4em; }
+  .table > tbody > tr {
+      border-top: 1px solid #dddddd;
+  }
+  .table > tbody > tr > th, .table > tbody > tr > td {
+      border-top: 0px solid #dddddd;
+  } 
+</style>
+ 
+
+</head>
+<body>
+    <nav class="dockbar navbar-fixed-top" id="header-dockbar">
+      <menu class="main-menu"></menu>
+  </nav>
+        <div class="container-fluid">
+        <div class="col-xs-12">
+        <div class="row">
+                <div class="col-xs-3">
+                    <h3><b>Name:</b><span class="pull-right" id="name"></span></h3>
+                    <BR>
+                    <ul class="statbar">
+                        <li><b>HP:</b><span class="pull-right" id="hp"></span></li>
+                        <li><b>Time:</b>  <span class="pull-right" id="time"></span>
+                    </ul>
+                        </thead>
+                        <tbody id="abilities" class="nav nav-pills nav-stacked">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-3">
+                    <div class="tab-content">
+                        <table class="table tab-pane active" id="skills-strength">
+                            <tr><th>Strength Skills:</th><th></th></tr>
+                        </table>
+                        <table class="table tab-pane" id="skills-intelligence">
+                            <tr><th>Intelligence Skills:</th><th></th></tr>
+                        </table>
+                        <table class="table tab-pane" id="skills-wisdom">
+                            <tr><th>Wisdom Skills:</th><th></th></tr>
+                        </table>
+                        <table class="table tab-pane" id="skills-dexterity">
+                            <tr><th>Dexterity Skills:</th><th></th></tr>
+                        </table>
+                        <table class="table tab-pane" id="skills-constitution">
+                            <tr><th>Constitution Skills:</th><th></th></tr>
+                        </table>
+                        <table class="table tab-pane" id="skills-charisma">
+                            <tr><th>Charisma Skills:</th><th></th></tr>
+                        </table>
+                        <table class="table tab-pane" id="skills-mana">
+                            <tr><th>Mana Skills:</th><th></th></tr>
+                        </table>
+                        <table class="table tab-pane" id="skills-intuition">
+                            <tr><th>Intuition Skills:</th><th></th></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <table class="table" id="resources">
+                        <tr><th>Resources:</th><th></th></tr>
+                    </table>
+                </div>
+                <div class="col-xs-3">
+                    <table class="table" id="infrastructure">
+                        <tr><th>Infrastructure:</th><th></th></tr>
+                    </table>
+                </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <ol id="selectAction" class="selectable nav nav-pills nav-stacked">
+              <li class="ui-widget-content" id="fight" data-action="fight" href="#fightActions" data-toggle="tab">Fight</li>
+                        <li class="ui-widget-content" id="build" data-action="build" href="#buildActions" data-toggle="tab">Build</li>
+                        <li class="ui-widget-content" id="gather" data-action="gather" href="#gatherActions" data-toggle="tab">Gather</li>
+                    </ol>
+                    <div id="actionText" class="text-success"></div>
+                    <div class="row">
+                        <span class="col-xs-6">
+                            <button id="fightEasier" class="btn col-xs-12 btn-success">Easier</button>
+                        </span>
+                        <span class="col-xs-6">
+                            <button id="fightHarder" class="btn  col-xs-12 btn-danger">Harder</button>
+                        </span>
+                    </div>
+                    <h3><span id="monster-name"></span></h3>
+                    <h4>Level: <span class="monster-level"></span></h4>
+                    <b>HP:</b> <span id="monster-hp"></span>/<span id="monster-max-hp"></span>
+          </div>
+                <div class="col-xs-3">
+                    <div class="tab-content">
+                        <div id="fightActions" class="tab-pane active">
+                            <ol id="fightSelect" class="selectable">
+                            </ol>
+                        </div>
+                        <div id="buildActions" class="tab-pane">
+                            <ol id="buildSelect" class="selectable">
+
+                            </ol>
+                        </div>
+                        <div id="gatherActions" class="tab-pane">
+                            <ol id="gatherSelect" class="selectable">
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div> 
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="../../common-files/js/jquery-1.10.2.min.js"></script>-->
+    <!--<script src="../../flat-ui/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> 
+    <script src="jstorage.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <!--<script src="../../common-files/js/modernizr.custom.js"></script>
+    <script src="../../common-files/js/page-transitions.js"></script>
+    <script src="../../common-files/js/startup-kit.js"></script>-->
+    <!--<script type="text/javascript" src="node_modules/backbone/backbone-min.js"></script>-->
+    <!--<script type="text/javascript" src="node_modules/smoothie/backbone.localstorage/backbone.localstorage.min.js"></script>-->
+    <script src="http://fb.me/react-0.12.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+    <script type="text/javascript" src="bootbox.min.js"></script>
+
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/stat.js"></script>
+    <script type="text/javascript" src="js/skill.js"></script>
+    <script type="text/javascript" src="js/monster.js"></script>
+    <script type="text/javascript" src="js/action.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/build.js"></script>
+    <script type="text/javascript" src="js/gather.js"></script>
+    <script type="text/javascript" src="js/fight.js"></script>
+    <script type="text/javascript" src="js/time.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

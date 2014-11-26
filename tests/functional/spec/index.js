@@ -1,22 +1,15 @@
-(function(expect, $) {
+'use strict';
+var Player, expect;
 
-  'use strict';
+expect = require("chai").expect;
 
+Player = require("../../../app/js/modules/player");
 
-  describe('Functional Test Suite', function() {
-
-    it('Should run tests', function () {
-
-      expect(true).to.be.true;
-
-    });
-
-    it('should read elements on the page', function () {
-
-      expect($('#testElement')).to.have.class('is-active');
-
-    });
-
+describe('Functional Test Suite', function() {
+  it('Should run tests', function() {
+    return expect(true).to.be["true"];
   });
-
-}(window.chai.expect, window.jQuery));
+  return it('should read elements on the page', function() {
+    return expect($('#testElement')).to.have["class"]('is-active');
+  });
+});

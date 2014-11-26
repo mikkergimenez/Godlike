@@ -5,7 +5,9 @@ var gulp        = require('gulp')
 ,   browserSync = require('browser-sync')
 ,   reload      = browserSync.reload
 ,   browserify = require('browserify')
-,   source     = require('vinyl-source-stream');
+,   source     = require('vinyl-source-stream')
+,   coffee      = require('gulp-coffee')
+,   coffeelint  = require('gulp-coffeelint');
 
 var path         = require('../utils/paths')
 ,   handleErrors = require('../utils/handleErrors');
@@ -16,6 +18,20 @@ var browserifyOpts = {
   debug: true,
   standalone: 'shared'
 };
+
+gulp.task('coffee:lint', function () {
+    gulp.src('./' + path.src.coffee + '**/*.coffee')
+        .pipe(coffeelint({"opt": { "indentation": { "value": 4 }}}))
+        .pipe(coffeelint.reporter())
+});
+
+gulp.task('js:coffeeify', function() {
+    gulp.src('./' + path.src.coffee + '**/*.coffee')
+        .pipe(coffee({bare: true})
+        .on('error', handleErrors))
+        .pipe(gulp.dest('./' + path.src.js))
+
+});
 
 gulp.task('js:browserify', function () {
   return browserify( './' + path.src.js + 'index.js', browserifyOpts ).bundle()
@@ -58,4 +74,4 @@ gulp.task('js:hint', function () {
 });
 
 
-gulp.task('js', ['js:browserify', 'js:vendor', 'js:modernizr', 'js:hint']);
+gulp.task('js', ['coffee:lint', 'js:coffeeify', 'js:browserify', 'js:vendor', 'js:modernizr']);
