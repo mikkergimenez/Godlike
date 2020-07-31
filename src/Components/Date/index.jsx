@@ -1,31 +1,22 @@
 import { useIntervalTimer } from "../../hooks/intervalTimer";
 import "./style.css";
+import DateCalc from './dateCalc';
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function Date() {
+function DateComponent() {
   const [seconds] = useIntervalTimer(() => {
-      console.log("Ticking Date");
   });
 
-  let twenty_four_hour = seconds % 24;
-  let hour;
-  let ampm;
+  let dateCalc = new DateCalc(seconds);
 
-  if (twenty_four_hour < 12) {
-      hour = twenty_four_hour + 1;
-      ampm = "am";
-  } else {
-      hour = twenty_four_hour - 11;
-      ampm = "pm";
-  }
-
-  let day = (seconds - twenty_four_hour) % 30 + 1;
-  let month = ((seconds - twenty_four_hour) - ((day - 1) * 24) % 12) + 1;
-  let year = ((seconds - twenty_four_hour) - ((day - 1) * 24) % 365);
-
+  let ampm = dateCalc.ampm;
+  let hour = dateCalc.hour;
+  let day = dateCalc.day;
+  let month = dateCalc.month;
+  let year = dateCalc.year;
 
   return <div className="Date">{month.toString().padStart(2, '0')}/{day.toString().padStart(2, '0')}/{year.toString().padStart(4, '0')} {hour}:00 {ampm}</div>;
 }
 
-export default Date;
+export default DateComponent;
