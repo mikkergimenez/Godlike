@@ -6,10 +6,15 @@ class Rest {
     constructor(stamina) {
         this.stamina = stamina;
     }
+
+    get failMessage() {
+        return "Stamina full";
+    } 
+
     
     execute() {
         console.log("Executing Rest");
-        this.stamina.incrementValue();
+        return this.stamina.incrementValue();
     }
 }
 

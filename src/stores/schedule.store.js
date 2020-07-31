@@ -49,9 +49,11 @@ class ScheduleStore {
   }
 
   execute(time) {
-    console.log(time);
-    console.log(this.schedule[time]);
-    this.schedule[time].execute();
+    if (!this.schedule[time].execute()) {
+        this.rootStore.uiStore.showFailure(this.schedule[time].failMessage)
+    } else {
+        this.rootStore.uiStore.hideFailure();
+    }
   }
 }
 

@@ -19,12 +19,14 @@ class Rest {
     }
 
     incrementValue() {
-        if (this._value >= this.max) return;
+        if (this._value >= this.max) return false;
         this._value++;
         
         if (this._value > this.max) {
             this._value = this.max;
         }
+
+        return true;
     }
 
     get value() {

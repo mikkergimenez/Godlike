@@ -5,6 +5,7 @@ import React from "react";
 import Paper from "@material-ui/core/Paper";
 
 import Date from "./Components/Date";
+import FailMessage from "./Components/FailMessage";
 import Schedule from "./Components/Schedule";
 import Stamina from "./Components/Stamina";
 import Wood from "./Components/Wood";
@@ -14,6 +15,7 @@ function App() {
     <div className="container">
       <Paper>
         <Date />
+        <FailMessage />
         <Stamina />
         <Wood />
       </Paper>
